@@ -1,0 +1,190 @@
+/* Sfondo scuro semi-trasparente che copre tutto lo schermo */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Nero al 50% di opacità */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assicura che sia sopra a tutto il resto */
+}
+
+/* Il riquadro bianco del popup */
+.modal-content {
+    background-color: white;
+    color: #333;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Tasto X per chiudere */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+/* Intestazione: Avatar e Username */
+.modal-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar-wrapper {
+    position: relative;
+}
+
+/* Il cerchio fittizio dell'avatar */
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #4fc3f7; /* Richiama l'azzurrino della navbar */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* La matita per modificare */
+.edit-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 1rem;
+}
+
+.edit-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.username {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Statistiche */
+.modal-stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4fc3f7;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Tasto Logout */
+.modal-footer {
+    margin-top: 1rem;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 25px;
+    border: 2px solid #ff4d4f; /* Colore rosso per il pericolo/uscita */
+    background-color: white;
+    color: #ff4d4f;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+/* Tasti Footer (Logout e Elimina Account) */
+.modal-footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column; /* Mette i bottoni uno sotto l'altro */
+    gap: 0.8rem; /* Spazio tra i due bottoni */
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 25px;
+    border: 2px solid #ff4d4f;
+    background-color: white;
+    color: #ff4d4f;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #ffe6e6; /* Sfondo leggermente rosato al passaggio */
+}
+
+/* Stile del nuovo tasto Elimina Account */
+.btn-delete-account {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 25px;
+    border: none;
+    background-color: #ff4d4f; /* Sfondo tutto rosso */
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-delete-account:hover {
+    background-color: #d9363e; /* Rosso più scuro al passaggio del mouse */
+}

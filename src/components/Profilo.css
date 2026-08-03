@@ -1,0 +1,81 @@
+.profilo-container {
+    padding: 2rem 4rem; /* Spazio dai bordi dello schermo */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra il contenuto se lo schermo è enorme */
+}
+
+.profilo-titolo {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* La griglia: mette automaticamente i mazzi affiancati e va a capo se non c'è spazio */
+.mazzi-grid {
+    display: grid;
+    /* Crea colonne larghe minimo 220px. Se c'è più spazio le allarga, sennò va a capo */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem; /* Spazio tra un mazzo e l'altro */
+}
+
+/* Base comune per tutte le card (dimensione e angoli smussati) */
+.mazzo-card {
+    height: 180px;
+    border-radius: 16px; /* Angoli smussati */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* --- STILE: + NUOVO MAZZO --- */
+.mazzo-card-nuovo {
+    border: 3px dashed #97a6fc; /* Bordo tratteggiato col colore richiesto */
+    background-color: transparent; /* Senza sfondo */
+    color: #9A83F0; /* Testo viola */
+    justify-content: center; /* Centra tutto perfettamente */
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Effetto al passaggio del mouse: piccolissimo sfondo viola per dare feedback visivo */
+.mazzo-card-nuovo:hover {
+    background: linear-gradient(135deg,#edf7fc 10%, #f1edfc 100% );
+    transform: translateY(-4px); /* Si alza leggermente */
+}
+
+.icona-piu {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+/* --- STILE: MAZZI ESISTENTI --- */
+.mazzo-card-esistente {
+    background: linear-gradient(135deg,#edf7fc 10%, #f0f2fc 100% );
+    border: none;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Effetto rilievo */
+    justify-content: center;
+    align-items: flex-start; /* Testo allineato a sinistra */
+    cursor: pointer;
+}
+
+/* Al passaggio del mouse: l'ombra aumenta per far sembrare che si sollevi */
+.mazzo-card-esistente:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mazzo-card-esistente h3 {
+    margin: 0 0 0.5rem 0;
+    color: #2a2a2a;
+    font-size: 1.3rem;
+}
+
+.mazzo-card-esistente p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
