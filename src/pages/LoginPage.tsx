@@ -16,10 +16,11 @@ export default function LoginPage() {
   const [error, setError] = useState('');
 
   const from =
-    (location.state as { from?: string } | null)?.from ?? '/';
+      (location.state as { from?: string } | null)?.from ?? '/';
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+
     setError('');
 
     if (!username.trim() || !password) {
@@ -29,55 +30,99 @@ export default function LoginPage() {
 
     try {
       setLoading(true);
+
       const response = await authService.login({
         username: username.trim(),
         password
       });
+
       login(response);
-      navigate(from, { replace: true });
+
+      navigate(from, {
+        replace: true
+      });
+
     } catch (requestError) {
-      setError(getErrorMessage(requestError));
+      setError(
+          getErrorMessage(requestError)
+      );
+
     } finally {
       setLoading(false);
     }
   };
 
+  const openRegistration = () => {
+    window.location.href =
+        'http://localhost:8080/register';
+  };
+
   return (
-    <div className="auth-page">
-      <form className="auth-card" onSubmit={handleSubmit}>
-        <h1>Accedi a Memo</h1>
-        <p>Inserisci le tue credenziali per continuare.</p>
+      <div className="auth-page">
 
-        {error && <div className="form-error">{error}</div>}
+        <form
+            className="auth-card"
+            onSubmit={handleSubmit}
+        >
 
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            autoComplete="username"
-          />
-        </label>
+          <h1>Accedi a Memo</h1>
 
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            autoComplete="current-password"
-          />
-        </label>
+          <p>
+            Inserisci le tue credenziali
+            per continuare.
+          </p>
 
-        <button className="auth-primary" type="submit" disabled={loading}>
-          {loading ? 'Accesso...' : 'Log In'}
-        </button>
+          {error && (
+              <div className="form-error">
+                {error}
+              </div>
+          )}
 
-        <button className="auth-link" type="button" onClick={() => navigate('/register')}>
-          Non hai un account? Registrati
-        </button>
-      </form>
-    </div>
+          <label>
+            Username
+
+            <input
+                type="text"
+                value={username}
+                onChange={(event) =>
+                    setUsername(event.target.value)
+                }
+                autoComplete="username"
+            />
+          </label>
+
+          <label>
+            Password
+
+            <input
+                type="password"
+                value={password}
+                onChange={(event) =>
+                    setPassword(event.target.value)
+                }
+                autoComplete="current-password"
+            />
+          </label>
+
+          <button
+              className="auth-primary"
+              type="submit"
+              disabled={loading}
+          >
+            {loading
+                ? 'Accesso...'
+                : 'Log In'}
+          </button>
+
+          <button
+              className="auth-link"
+              type="button"
+              onClick={openRegistration}
+          >
+            Non hai un account? Registrati
+          </button>
+
+        </form>
+      </div>
   );
 }

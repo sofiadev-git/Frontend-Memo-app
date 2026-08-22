@@ -29,9 +29,9 @@
 
 /* --- STILE: + NUOVO MAZZO --- */
 .mazzo-card-nuovo {
-    border: 3px dashed #97a6fc; /* Bordo tratteggiato col colore richiesto */
+    border: 3px dashed #80a3d9; /* Bordo tratteggiato col colore richiesto */
     background-color: transparent; /* Senza sfondo */
-    color: #9A83F0; /* Testo viola */
+    color: #80a3d9; /* Testo viola */
     justify-content: center; /* Centra tutto perfettamente */
     align-items: center;
     cursor: pointer;
@@ -51,22 +51,7 @@
     margin-bottom: 0.5rem;
 }
 
-/* --- STILE: MAZZI ESISTENTI --- */
-.mazzo-card-esistente {
-    background: linear-gradient(135deg,#edf7fc 10%, #f0f2fc 100% );
-    border: none;
-    color: #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Effetto rilievo */
-    justify-content: center;
-    align-items: flex-start; /* Testo allineato a sinistra */
-    cursor: pointer;
-}
 
-/* Al passaggio del mouse: l'ombra aumenta per far sembrare che si sollevi */
-.mazzo-card-esistente:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
 
 .mazzo-card-esistente h3 {
     margin: 0 0 0.5rem 0;
@@ -96,12 +81,12 @@
 }
 
 .profile-tab-mine {
-    border: 2px solid #9A83F0;
-    color: #9A83F0;
+    border: 2px solid #2c6dd5;
+    color: #2c6dd5;
 }
 
 .profile-tab-mine.active {
-    background: #9A83F0;
+    background: #2478f5;
     color: white;
 }
 

@@ -9,7 +9,6 @@ import DeckPage from './pages/DeckPage';
 import DeckFormPage from './pages/DeckFormPage';
 import ReviewPage from './pages/ReviewPage';
 import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
 import './App.css';
 
 export default function App() {
@@ -22,7 +21,6 @@ export default function App() {
                         <Route path="/search" element={<SearchPage />} />
                         <Route path="/deck/:id" element={<DeckPage />} />
                         <Route path="/login" element={<LoginPage />} />
-                        <Route path="/register" element={<RegisterPage />} />
 
                         <Route element={<PrivateRoute />}>
                             <Route path="/profile" element={<ProfilePage />} />

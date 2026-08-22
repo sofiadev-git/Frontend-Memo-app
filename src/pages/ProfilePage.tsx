@@ -78,7 +78,11 @@ export default function ProfilePage() {
           )}
 
           {(tab === 'mine' ? mine : bookmarks).map((deck) => (
-            <DeckCard key={deck.id} deck={deck} onChange={updateDeck} />
+              <DeckCard
+                  key={deck.id}
+                  deck={deck}
+                  onChange={updateDeck}
+              />
           ))}
         </div>
       )}

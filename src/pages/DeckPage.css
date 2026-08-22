@@ -1,32 +1,228 @@
+/* =========================================
+   PAGINA VISUALIZZAZIONE MAZZO
+   ========================================= */
+
+.creazione-container {
+    width: min(1130px, 92%);
+    margin: 2rem auto 3rem;
+}
+
+
+/* =========================================
+   BARRA AZIONI
+   ========================================= */
+
 .deck-actions-header {
-    justify-content: space-between;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+
+    margin-bottom: 1.7rem;
 }
 
 .deck-actions-group {
     display: flex;
+    align-items: center;
+
     gap: 1rem;
 }
 
-.btn-delete-deck {
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    border: 1px solid #ff4d4f;
-    background: white;
-    color: #ff4d4f;
-    font-weight: bold;
+
+/* Stile base dei pulsanti */
+
+.deck-actions-header .btn-indietro,
+.deck-actions-header .btn-delete-deck,
+.deck-actions-header .btn-salva {
+    min-height: 52px;
+
+    padding: 0 1.35rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    border-radius: 999px;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+
     cursor: pointer;
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            border-color 0.2s ease,
+            color 0.2s ease,
+            background 0.2s ease;
 }
+
+
+/* Torna indietro + Modifica */
+
+.deck-actions-header .btn-indietro {
+    border: 1px solid #d9e4f2;
+
+    background: #ffffff;
+
+    color: #415276;
+
+    box-shadow:
+            0 5px 14px
+            rgba(47, 128, 237, 0.08);
+}
+
+.deck-actions-header .btn-indietro:hover {
+    transform: translateY(-2px);
+
+    border-color: #b9d5f7;
+
+    color: #2f80ed;
+
+    background: #f8fbff;
+
+    box-shadow:
+            0 9px 20px
+            rgba(47, 128, 237, 0.13);
+}
+
+
+/* Elimina */
+
+.deck-actions-header .btn-delete-deck {
+    border: 1px solid #ffd0d0;
+
+    background: #ffffff;
+
+    color: #f04444;
+
+    box-shadow:
+            0 5px 14px
+            rgba(240, 68, 68, 0.06);
+}
+
+.deck-actions-header .btn-delete-deck:hover {
+    transform: translateY(-2px);
+
+    border-color: #ffaaaa;
+
+    background: #fff7f7;
+
+    box-shadow:
+            0 9px 20px
+            rgba(240, 68, 68, 0.11);
+}
+
+
+/* Avvia Ripasso */
+
+.deck-actions-header .btn-salva {
+    border: none;
+
+    background: linear-gradient(
+            135deg,
+            #2f80ed 0%,
+            #27c2cf 55%,
+            #5277ef 100%
+    );
+
+    color: white;
+
+    box-shadow:
+            0 7px 18px
+            rgba(47, 128, 237, 0.23);
+}
+
+.deck-actions-header .btn-salva:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 11px 24px
+            rgba(47, 128, 237, 0.30);
+}
+
+
+/* =========================================
+   CARD INFORMAZIONI MAZZO
+   ========================================= */
 
 .deck-info-bubble {
-    justify-content: space-between;
+    width: 100%;
+
+    min-height: 300px;
+
+    padding: 2rem 2.2rem 1.55rem;
+
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    position: relative;
+
+    border: 1px solid #d8e5f5;
+
+    border-radius: 27px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f9fbff 100%
+            );
+
+    box-shadow:
+            0 13px 30px
+            rgba(47, 128, 237, 0.07);
 }
 
+
+/* Piccolo riflesso superiore */
+
+.deck-info-bubble::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 5%;
+    right: 5%;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(47, 128, 237, 0.45),
+                    rgba(39, 194, 207, 0.33),
+                    transparent
+            );
+}
+
+
+/* =========================================
+   PARTE TESTUALE DEL MAZZO
+   ========================================= */
+
 .deck-info-text {
+    flex: 1;
+    min-width: 0;
+
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     align-items: flex-start;
+
+    gap: 0.7rem;
 }
 
 .deck-info-text h1,
@@ -34,94 +230,494 @@
     margin: 0;
 }
 
-.deck-author {
-    color: #9A83F0;
-    font-weight: bold;
-    padding: 0.4rem 1rem;
-    background: rgba(154, 131, 240, 0.1);
-    border-radius: 20px;
-    margin-bottom: 0.5rem;
+
+/* Titolo */
+
+.deck-info-text h1 {
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+
+    color: #172967;
+
+    font-size: clamp(
+            2.7rem,
+            5vw,
+            4rem
+    );
+
+    font-weight: 800;
+    line-height: 1;
+
+    letter-spacing: -1px;
 }
+
+
+/* =========================================
+   AUTORE
+   ========================================= */
+
+.deck-author {
+    padding: 0.65rem 1.1rem;
+
+    display: inline-flex;
+    align-items: center;
+
+    border: 1px solid #d8e5fa;
+
+    border-radius: 999px;
+
+    background:
+            rgba(47, 128, 237, 0.055);
+
+    color: #3978e4;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    margin-bottom: 0.25rem;
+}
+
+
+/* =========================================
+   CATEGORIA
+   ========================================= */
 
 .deck-category {
-    color: #888;
-    font-weight: bold;
+    margin-top: 0.2rem;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    color: #405174;
+
+    font-size: 0.98rem;
+    font-weight: 600;
 }
+
+.deck-category-icon {
+    width: 43px;
+    height: 43px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid #d8e5f5;
+
+    border-radius: 50%;
+
+    background: #fbfdff;
+
+    color: #4382ed;
+
+    box-shadow:
+            0 4px 10px
+            rgba(47, 128, 237, 0.05);
+}
+
+.deck-category-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+/* =========================================
+   NUMERO CARTE
+   ========================================= */
+
+.deck-info-text > p:not(.deck-created-at) {
+    color: #405174;
+
+    font-size: 0.98rem;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   DATA CREAZIONE
+   ========================================= */
 
 .deck-created-at {
-    color: #999;
-    font-size: 0.85rem;
+    color: #7d899e;
+
+    font-size: 0.87rem;
 }
+
+
+/* =========================================
+   LIKE E SALVATAGGIO
+   ========================================= */
 
 .deck-social-actions {
-    text-align: center;
+    flex-shrink: 0;
+
     display: flex;
-    gap: 1rem;
     align-items: center;
+
+    gap: 1.15rem;
+
+    text-align: center;
 }
 
+.deck-social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0.25rem;
+}
+
+
+/* Bottone rotondo */
+
 .icon-action-button {
-    background: none;
-    border: none;
+    width: 82px;
+    height: 82px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dbe6f5;
+
+    border-radius: 50%;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f8fbff 100%
+            );
+
     cursor: pointer;
-    transition: transform 0.2s;
+
+    box-shadow:
+            0 7px 17px
+            rgba(47, 128, 237, 0.07);
+
+    transition:
+            transform 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
 }
 
 .icon-action-button:hover {
-    transform: scale(1.08);
+    transform:
+            translateY(-3px)
+            scale(1.03);
+
+    border-color: #b8d5fa;
+
+    box-shadow:
+            0 11px 22px
+            rgba(47, 128, 237, 0.13);
 }
+
+
+/* Numero dei like */
 
 .social-count {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #555;
     margin-top: 0.2rem;
+
+    color: #172967;
+
+    font-size: 1.15rem;
+    font-weight: 800;
 }
 
+
+/* Testo Salva */
+
 .bookmark-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #888;
     margin-top: 0.2rem;
+
+    color: #78859c;
+
+    font-size: 0.88rem;
+    font-weight: 700;
 }
 
 .bookmark-label.active {
     color: #ff4d4f;
 }
 
+
+/* =========================================
+   LISTA FLASHCARD
+   ========================================= */
+
+.lista-carte {
+    width: 100%;
+
+    margin-top: 1.7rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.35rem;
+}
+
+
+/* =========================================
+   SINGOLA FLASHCARD
+   ========================================= */
+
+.carta-block {
+    overflow: hidden;
+
+    border: 1px solid #d9e5f4;
+
+    border-radius: 23px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #fafcff 100%
+            );
+
+    box-shadow:
+            0 11px 24px
+            rgba(47, 128, 237, 0.06);
+}
+
+
+/* =========================================
+   HEADER DELLA FLASHCARD
+   ========================================= */
+
+.carta-block .carta-header {
+    padding: 1rem 1.45rem;
+
+    border: none;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(47, 128, 237, 0.13) 0%,
+                    rgba(39, 194, 207, 0.08) 55%,
+                    rgba(47, 128, 237, 0.06) 100%
+            );
+
+    color: #162240;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   CORPO FLASHCARD
+   ========================================= */
+
+.carta-block .carta-corpo {
+    padding: 1.45rem 1.5rem 1.6rem;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 1.6rem;
+}
+
+
+/* =========================================
+   FRONTE / RETRO
+   ========================================= */
+
+.carta-block .carta-lato {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.85rem;
+}
+
+.carta-block .carta-lato label {
+    color: #3f7ce7;
+
+    font-size: 0.93rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.015em;
+}
+
+
+/* =========================================
+   CONTENUTO DELLA CARTA
+   ========================================= */
+
 .readonly-card-side {
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 12px;
-    min-height: 60px;
+    min-height: 90px;
+
+    padding: 1.3rem 1.35rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    border: 1px solid #dae5f3;
+
+    border-radius: 16px;
+
+    background: #fbfdff;
+
+    color: #172967;
+
+    box-shadow:
+            inset 0 1px 3px
+            rgba(47, 128, 237, 0.025);
 }
 
 .readonly-card-side span {
-    font-size: 1.1rem;
+    color: #172967;
+
+    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 .readonly-card-side small {
+    margin-top: 0.45rem;
+
+    color: #7c889d;
+
     font-size: 0.85rem;
-    color: #888;
-    margin-top: 0.4rem;
+    line-height: 1.45;
 }
 
-@media (max-width: 720px) {
-    .deck-actions-header,
-    .deck-info-bubble {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 1rem;
+
+/* =========================================
+   MESSAGGI
+   ========================================= */
+
+.page-message {
+    width: min(900px, 92%);
+
+    margin: 2rem auto;
+
+    padding: 2rem;
+
+    text-align: center;
+
+    border: 1px solid #dae5f3;
+
+    border-radius: 18px;
+
+    background: white;
+
+    color: #71809a;
+}
+
+.page-error {
+    color: #dc3d3d;
+
+    border-color: #ffd1d1;
+
+    background: #fff8f8;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .deck-actions-header {
+        flex-wrap: wrap;
     }
 
     .deck-actions-group {
         flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .deck-info-bubble {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 1.6rem;
     }
 
     .deck-social-actions {
         justify-content: center;
+    }
+
+    .carta-block .carta-corpo {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 560px) {
+
+    .creazione-container {
+        width: 94%;
+
+        margin-top: 1.2rem;
+    }
+
+    .deck-actions-header {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .deck-actions-group {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .deck-actions-header .btn-indietro,
+    .deck-actions-header .btn-delete-deck,
+    .deck-actions-header .btn-salva {
+        width: 100%;
+    }
+
+    .deck-info-bubble {
+        padding: 1.3rem;
+
+        border-radius: 21px;
+    }
+
+    .deck-info-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .deck-social-actions {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .icon-action-button {
+        width: 72px;
+        height: 72px;
+    }
+
+    .carta-block {
+        border-radius: 19px;
+    }
+
+    .carta-block .carta-corpo {
+        padding: 1.1rem;
     }
 }

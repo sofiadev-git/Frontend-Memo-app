@@ -1,200 +1,855 @@
-/* Contenitore principale: padding e gap aumentati per più altezza */
+/* ==============================
+   CONTENITORE ESTERNO
+   ============================== */
+
+.navbar-wrapper {
+    width: 100%;
+
+    padding:
+            1.2rem
+            1.5rem;
+
+    background: transparent;
+}
+
+
+/* ==============================
+   NAVBAR
+   ============================== */
+
 .navbar {
-    background: linear-gradient(135deg, #97a5f7 10%, #7B5EE4 100%); /* Il tuo azzurrino */
-    color: white;
-    padding: 1rem 2rem; /* Aumentato da 1rem a 1.5rem */
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Aumentato per distanziare bene le 3 righe */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 25px 25px;
-}
+    width: min(1500px, 100%);
+    min-height: 92px;
 
-/* 1. Riga superiore (Logo e Bottoni) */
-.navbar-top {
-    display: flex;
-    justify-content: space-between; /* Logo a sx, Bottoni a dx */
+    margin: 0 auto;
+
+    padding:
+            0.8rem
+            1.3rem;
+
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
     align-items: center;
+
+    column-gap: 1.4rem;
+
+    position: relative;
+
+    background:
+            linear-gradient(
+                    120deg,
+                    rgba(47, 128, 237, 0.055) 0%,
+                    rgba(255, 255, 255, 0.97) 24%,
+                    rgba(255, 255, 255, 0.97) 70%,
+                    rgba(108, 76, 241, 0.055) 100%
+            );
+
+    border:
+            1px solid
+            rgba(47, 128, 237, 0.10);
+
+    border-radius: 26px;
+
+    box-shadow:
+            0 10px 30px
+            rgba(51, 72, 125, 0.10);
+
+    backdrop-filter: blur(14px);
+
+    color: #19204f;
 }
 
-.navbar-logo h2 {
-    margin: 0;
-    font-size: 1.8rem;
+
+/* Piccolo riflesso superiore */
+
+.navbar::before {
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 3%;
+    right: 3%;
+
+    height: 1px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(47, 128, 237, 0.22),
+                    rgba(39, 194, 207, 0.18),
+                    rgba(108, 76, 241, 0.20),
+                    transparent
+            );
+}
+
+
+/* ==============================
+   LOGO
+   ============================== */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    min-width: max-content;
+
     cursor: pointer;
 }
 
-.navbar-actions {
-    display: flex;
-    gap: 1rem;
+
+.navbar-logo-image {
+    width: 54px;
+    height: 54px;
+
+    object-fit: contain;
+
+    filter:
+            drop-shadow(
+                    0 5px 7px
+                    rgba(47, 128, 237, 0.16)
+            );
 }
 
-/* 2. Riga centrale (Ricerca) */
 
-.navbar-middle {
+.navbar-logo-name {
+    color: #18205a;
+
+    font-size: 1.7rem;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* ==============================
+   PARTE CENTRALE
+   ============================== */
+
+.navbar-center {
+    min-width: 0;
+
+    padding:
+            0
+            1.3rem;
+
     display: flex;
-    justify-content: center; /* Centra la barra di ricerca */
+    align-items: center;
+    justify-content: center;
+
+    gap: 1.4rem;
+
+    border-left:
+            1px solid
+            #e6eaf2;
+
+    border-right:
+            1px solid
+            #e6eaf2;
+}
+
+
+/* ==============================
+   LINK NAVIGAZIONE
+   ============================== */
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+
+    gap: 0.3rem;
+
+    flex-shrink: 0;
+}
+
+
+.nav-link {
+    height: 54px;
+
+    padding:
+            0
+            0.95rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.55rem;
+
+    position: relative;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    color: #292f62;
+
+    font-size: 0.96rem;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+            color 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease,
+            transform 0.2s ease;
+}
+
+
+.nav-link:hover {
+    color: #2f80ed;
+
+    background:
+            rgba(47, 128, 237, 0.055);
+}
+
+
+.nav-link.active {
+    color: #2f80ed;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    rgba(47, 128, 237, 0.08),
+                    rgba(39, 194, 207, 0.04)
+            );
+
+    box-shadow:
+            0 3px 12px
+            rgba(47, 128, 237, 0.08);
+}
+
+
+/* Linea colorata sotto il link attivo */
+
+.nav-link.active::after {
+    content: '';
+
+    position: absolute;
+
+    left: 27%;
+    right: 27%;
+
+    bottom: -8px;
+
+    height: 3px;
+
+    border-radius: 10px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #2f80ed 0%,
+                    #27c2cf 40%,
+                    #6c4cf1 100%
+            );
+}
+
+
+/* ==============================
+   ICONE NAVIGAZIONE
+   ============================== */
+
+.nav-icon {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #7c88b4;
+}
+
+
+.nav-icon svg {
     width: 100%;
+    height: 100%;
 }
+
+
+.nav-link:hover .nav-icon,
+.nav-link.active .nav-icon {
+    color: #2f80ed;
+}
+
+
+/* ==============================
+   RICERCA
+   ============================== */
 
 .navbar-search {
-    width: 100%;
-    max-width: 500px; /* Un po' più larga rispetto a prima */
-    position: relative; /* AGGIUNTO: Permette di posizionare la lente in modo assoluto rispetto a questo div */
+    min-width: 170px;
+    max-width: 330px;
+
+    flex:
+            1
+            1
+            260px;
+
+    position: relative;
 }
+
 
 .navbar-search input {
     width: 100%;
-    /* AGGIUNTO: Padding destro (2.5rem) aumentato affinché il testo non vada sotto la lente */
-    padding: 0.8rem 2.5rem 0.8rem 1.2rem;
-    border-radius: 25px;
-    border: none;
+    height: 46px;
+
+    padding:
+            0
+            3rem
+            0
+            1.1rem;
+
+    border:
+            1px solid
+            #e0e6f1;
+
+    border-radius: 15px;
+
     outline: none;
-    font-size: 1.1rem;
-    color: #333;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
 
-/* --- CLASSE AGGIUNTA PER LA LENTE --- */
-.search-icon-svg {
-    position: absolute;
-    right: 15px; /* Distanza dal bordo destro */
-    top: 50%; /* La spinge a metà altezza */
-    transform: translateY(-50%); /* La centra perfettamente in verticale */
-    pointer-events: none; /* Fa sì che il click "passi attraverso" l'icona, selezionando l'input */
-}
+    background:
+            rgba(248, 251, 255, 0.9);
 
-/* 3. Riga inferiore (Link Home e Profilo) */
-.navbar-bottom {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-}
+    color: #252a50;
 
-/* --- Stili dei bottoni (invariati rispetto a prima, ma con colore azzurrino) --- */
-.btn {
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
 }
 
-.btn-outline {
-    background-color: transparent;
-    color: white;
-    border: 2px solid white;
+
+.navbar-search input::placeholder {
+    color: #9ba4bb;
 }
 
-.btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+
+.navbar-search input:focus {
+    background: white;
+
+    border-color:
+            rgba(47, 128, 237, 0.55);
+
+    box-shadow:
+            0 0 0 3px
+            rgba(47, 128, 237, 0.09);
 }
 
-.btn-filled {
-    background-color: white;
-    color: #9A83F0;
-    border: 2px solid white;
-}
 
-.btn-filled:hover {
-    background-color: #E2DBFF;
-    border-color: #E2DBFF;
-}
+.search-submit {
+    width: 42px;
+    height: 42px;
 
-/* Stili dei link navigazione (Home, Profilo) */
-.nav-link {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 0.5rem;
-    position: relative;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-    opacity: 1;
-}
-
-.nav-link::after {
-    content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    transition: width 0.3s ease;
-}
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
+    right: 2px;
+    top: 2px;
 
-/* Stile per il pulsante impostazioni: solo icona, più grande, senza outline */
-.btn-settings-icon {
-    background: none;       /* Rimuove lo sfondo */
-    border: none;           /* Rimuove il bordo */
-    padding: 0;              /* Rimuove il padding */
-    margin-right: 0.5rem;   /* Aggiunge un po' di spazio prima del Log In */
-    cursor: pointer;        /* Mantiene il cursore a manina */
-    font-size: 1.6rem;     /* Aumenta la dimensione dell'emoji/icona */
-    color: white;           /* Colore bianco per l'icona */
-    display: flex;          /* Centra l'icona all'interno del pulsante */
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease; /* Transizione morbida per l'hover */
-}
-
-/* Feedback visivo quando si passa sopra con il mouse */
-.btn-settings-icon:hover {
-    opacity: 0.7; /* Diventa leggermente trasparente */
-}
-
-/* Rimuove l'outline predefinito del browser quando cliccato/selezionato */
-.btn-settings-icon:focus {
-    outline: none;
-}
-/* Stile per il nome utente nella navbar */
-.navbar-username {
-    font-size: 1.1rem;
-    font-weight: bold;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: transparent;
+
+    color: #7482ab;
+
+    cursor: pointer;
+
+    transition:
+            color 0.2s ease,
+            background 0.2s ease;
 }
 
-/* Allineamento corretto per quando rotella e nome sono insieme */
+
+.search-submit:hover {
+    color: #2f80ed;
+
+    background:
+            rgba(47, 128, 237, 0.06);
+}
+
+
+.search-submit svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ==============================
+   PARTE DESTRA
+   ============================== */
+
 .navbar-actions {
     display: flex;
-    align-items: center; /* Assicura che rotella e nome siano allineati verticalmente */
-    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 0.65rem;
+
+    min-width: max-content;
 }
-.search-submit {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 48px;
-    height: 100%;
+
+
+/* ==============================
+   ACCEDI
+   ============================== */
+
+.login-button {
+    height: 48px;
+
+    padding:
+            0
+            0.75rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
     border: none;
+
     background: transparent;
+
+    color: #292f62;
+
+    font-size: 0.95rem;
+    font-weight: 650;
+
     cursor: pointer;
+
+    transition:
+            color 0.2s ease,
+            background 0.2s ease;
+}
+
+
+.login-button:hover {
+    color: #2f80ed;
+}
+
+
+.login-icon {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+
+    color: #7c88b4;
+}
+
+
+.login-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+.login-button:hover .login-icon {
+    color: #2f80ed;
+}
+
+
+/* ==============================
+   REGISTRATI
+   ============================== */
+
+.signup-button {
+    height: 50px;
+
+    padding:
+            0
+            1.35rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #2f80ed 0%,
+                    #27c2cf 40%,
+                    #6c4cf1 100%
+            );
+
+    color: white;
+
+    font-size: 0.94rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 6px 16px
+            rgba(47, 128, 237, 0.23);
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+
+.signup-button:hover {
+    transform:
+            translateY(-2px);
+
+    box-shadow:
+            0 10px 22px
+            rgba(47, 128, 237, 0.28);
+}
+
+
+.signup-arrow {
+    font-size: 1.25rem;
+
+    line-height: 1;
+}
+
+
+/* ==============================
+   UTENTE AUTENTICATO
+   ============================== */
+
+.navbar-user {
+    height: 48px;
+
+    padding:
+            0
+            0.65rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.55rem;
+
+    color: #292f62;
+}
+
+
+.user-icon {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+
+    color: #7c88b4;
+}
+
+
+.user-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+.navbar-username {
+    max-width: 140px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   IMPOSTAZIONI
+   ============================== */
+
+.settings-button {
+    width: 44px;
+    height: 44px;
+
     padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+            1px solid
+            #e2e7f1;
+
+    border-radius: 13px;
+
+    background:
+            rgba(248, 251, 255, 0.9);
+
+    color: #7786b0;
+
+    cursor: pointer;
+
+    transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background 0.2s ease,
+            transform 0.2s ease;
 }
 
-.search-submit .search-icon-svg {
-    pointer-events: none;
+
+.settings-button svg {
+    width: 21px;
+    height: 21px;
 }
 
-@media (max-width: 700px) {
+
+.settings-button:hover {
+    color: #2f80ed;
+
+    border-color:
+            rgba(47, 128, 237, 0.30);
+
+    background:
+            rgba(47, 128, 237, 0.06);
+
+    transform:
+            rotate(12deg);
+}
+
+
+/* ==============================
+   SCHERMI MEDI
+   ============================== */
+
+@media (max-width: 1150px) {
+
     .navbar {
-        padding: 1rem;
+        grid-template-columns:
+            auto
+            1fr
+            auto;
+
+        column-gap: 1rem;
     }
 
-    .navbar-bottom {
-        gap: 1.5rem;
+
+    .navbar-center {
+        gap: 0.7rem;
+
+        padding:
+                0
+                0.8rem;
+    }
+
+
+    .navbar-links {
+        gap: 0;
+    }
+
+
+    .nav-link {
+        padding:
+                0
+                0.65rem;
+    }
+
+
+    .navbar-search {
+        max-width: 240px;
+    }
+
+
+    .navbar-logo-name {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ==============================
+   TABLET
+   ============================== */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        grid-template-columns:
+            auto
+            1fr;
+
+        row-gap: 1rem;
+    }
+
+
+    .navbar-actions {
+        justify-self: end;
+    }
+
+
+    .navbar-center {
+        grid-column:
+                1
+            /
+            -1;
+
+        grid-row: 2;
+
+        width: 100%;
+
+        padding:
+                0.8rem
+                0
+                0;
+
+        border-left: none;
+        border-right: none;
+
+        border-top:
+                1px solid
+                #e6eaf2;
+    }
+
+
+    .navbar-search {
+        max-width: none;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 620px) {
+
+    .navbar-wrapper {
+        padding: 0.7rem;
+    }
+
+
+    .navbar {
+        padding: 1rem;
+
+        border-radius: 20px;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .navbar-logo {
+        justify-content: center;
+    }
+
+
+    .navbar-logo-image {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .navbar-logo-name {
+        font-size: 1.5rem;
+    }
+
+
+    .navbar-actions {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .navbar-center {
+        grid-column: 1;
+
+        flex-direction: column;
+
+        gap: 1rem;
+    }
+
+
+    .navbar-links {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    .nav-link {
+        flex: 1;
+
+        justify-content: center;
+
+        padding:
+                0
+                0.45rem;
+
+        font-size: 0.85rem;
+    }
+
+
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    .navbar-search {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    .nav-link.active::after {
+        bottom: -5px;
+    }
+}
+
+
+/* ==============================
+   MOBILE PICCOLO
+   ============================== */
+
+@media (max-width: 430px) {
+
+    .nav-link {
+        flex-direction: column;
+
+        height: 58px;
+
+        gap: 0.2rem;
+
+        font-size: 0.76rem;
+    }
+
+
+    .login-button {
+        padding:
+                0
+                0.4rem;
+    }
+
+
+    .signup-button {
+        padding:
+                0
+                1rem;
     }
 }

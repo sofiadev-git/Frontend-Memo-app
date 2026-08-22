@@ -1,0 +1,216 @@
+.home-mazzo-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 210px;
+    padding: 1.35rem 1.4rem 1.1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 22px;
+    border: 1px solid #e5eaf4;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.98) 0%,
+                    rgba(251, 252, 255, 0.98) 100%
+            );
+
+    box-shadow:
+            0 8px 24px rgba(43, 67, 138, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+    cursor: pointer;
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+}
+
+/* bordo superiore con gradiente */
+.home-mazzo-card::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: linear-gradient(
+            90deg,
+            #2f80ed 0%,
+            #27c2cf 40%,
+            #6c4cf1 100%
+    );
+}
+
+/* piccolo accento nell'angolo in basso a destra */
+.home-mazzo-card::after {
+    content: '';
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    width: 26px;
+    height: 26px;
+
+    background: linear-gradient(
+            135deg,
+            #5cc3ff 0%,
+            #6c4cf1 100%
+    );
+
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    opacity: 0.95;
+}
+
+.home-mazzo-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #d8e7fb;
+
+    box-shadow:
+            0 14px 32px rgba(43, 67, 138, 0.12),
+            0 2px 8px rgba(47, 128, 237, 0.06);
+}
+
+.home-mazzo-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-mazzo-card-title {
+    margin: 0;
+
+    color: #1c2b53;
+
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.home-mazzo-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.home-mazzo-card-info {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    color: #53698f;
+
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.home-mazzo-card-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 1rem 0 0.9rem;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(215, 223, 236, 0.4) 0%,
+                    rgba(215, 223, 236, 0.9) 50%,
+                    rgba(215, 223, 236, 0.4) 100%
+            );
+}
+
+.home-mazzo-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.home-mazzo-card-category {
+    margin: 0;
+
+    color: #4a5c80;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    max-width: 70%;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.home-mazzo-card-likes {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    color: #4b5d83;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.heart-icon {
+    color: #a0a8ba;
+
+    transition: color 0.2s ease;
+}
+
+.home-mazzo-card-likes:hover .heart-icon {
+    color: #2a395a;
+}
+
+.home-mazzo-card-likes.filled .heart-icon {
+    color: #ff5c66;
+}
+
+.home-mazzo-card-likes.filled:hover .heart-icon {
+    color: #e54852;
+}
+
+.mini-icon {
+    width: 18px;
+    height: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.mini-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.home-mazzo-card-info .mini-icon {
+    color: #6d8eff;
+}
+
+.heart-icon {
+    color: #a0a8ba;
+}
+
+.home-mazzo-card-likes.filled .heart-icon {
+    color: #ff5c66;
+}
