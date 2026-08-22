@@ -1,22 +1,28 @@
-/* Rimuove i margini di default del browser */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  /* Opzionale: un font di base pulito se non ne hai già uno */
+  min-height: 100%;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: #fafbff;
 }
 
-/* Forza il contenitore principale di React a prendere tutto lo spazio */
 #root {
   width: 100%;
-  max-width: 100%; /* Sovrascrive il max-width: 1280px di Vite */
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Fa in modo che il box-sizing includa padding e bordi nelle dimensioni */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }

@@ -45,3 +45,12 @@
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 2rem;
 }
+.empty-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+}

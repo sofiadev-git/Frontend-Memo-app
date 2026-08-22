@@ -173,3 +173,28 @@
     align-items: center; /* Assicura che rotella e nome siano allineati verticalmente */
     gap: 1rem;
 }
+.search-submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.search-submit .search-icon-svg {
+    pointer-events: none;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-bottom {
+        gap: 1.5rem;
+    }
+}

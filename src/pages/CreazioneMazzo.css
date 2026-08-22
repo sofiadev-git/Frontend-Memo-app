@@ -187,3 +187,32 @@
 .btn-elimina-singola:hover {
     background-color: #ffe6e6; /* Leggero sfondo rosso al passaggio del mouse */
 }
+.card-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-description-input {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-error {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+}
+
+@media (max-width: 720px) {
+    .creazione-container {
+        padding: 1rem;
+    }
+
+    .info-mazzo-bubble,
+    .carta-corpo {
+        flex-direction: column;
+    }
+}

@@ -79,3 +79,45 @@
     color: #666;
     font-size: 1rem;
 }
+.profile-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.profile-tab {
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile-tab-mine {
+    border: 2px solid #9A83F0;
+    color: #9A83F0;
+}
+
+.profile-tab-mine.active {
+    background: #9A83F0;
+    color: white;
+}
+
+.profile-tab-saved {
+    border: 2px solid #ff4d4f;
+    color: #ff4d4f;
+}
+
+.profile-tab-saved.active {
+    background: #ff4d4f;
+    color: white;
+}
+
+.profile-empty {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    font-style: italic;
+}

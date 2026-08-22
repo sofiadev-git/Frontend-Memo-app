@@ -1,0 +1,127 @@
+.deck-actions-header {
+    justify-content: space-between;
+}
+
+.deck-actions-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-delete-deck {
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: 1px solid #ff4d4f;
+    background: white;
+    color: #ff4d4f;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.deck-info-bubble {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deck-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.deck-info-text h1,
+.deck-info-text p {
+    margin: 0;
+}
+
+.deck-author {
+    color: #9A83F0;
+    font-weight: bold;
+    padding: 0.4rem 1rem;
+    background: rgba(154, 131, 240, 0.1);
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.deck-category {
+    color: #888;
+    font-weight: bold;
+}
+
+.deck-created-at {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.deck-social-actions {
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icon-action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon-action-button:hover {
+    transform: scale(1.08);
+}
+
+.social-count {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-top: 0.2rem;
+}
+
+.bookmark-label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #888;
+    margin-top: 0.2rem;
+}
+
+.bookmark-label.active {
+    color: #ff4d4f;
+}
+
+.readonly-card-side {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.readonly-card-side span {
+    font-size: 1.1rem;
+}
+
+.readonly-card-side small {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 0.4rem;
+}
+
+@media (max-width: 720px) {
+    .deck-actions-header,
+    .deck-info-bubble {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .deck-actions-group {
+        flex-wrap: wrap;
+    }
+
+    .deck-social-actions {
+        justify-content: center;
+    }
+}
