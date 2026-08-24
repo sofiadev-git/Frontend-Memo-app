@@ -1,5 +1,6 @@
 export interface Flashcard {
   id: number | null;
+  position: number;
   frontText: string;
   frontDescription: string | null;
   backText: string;

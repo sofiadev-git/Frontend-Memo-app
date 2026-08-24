@@ -20,7 +20,7 @@
 /* Base comune per tutte le card (dimensione e angoli smussati) */
 .mazzo-card {
     height: 180px;
-    border-radius: 16px; /* Angoli smussati */
+    border-radius: 16px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -29,20 +29,19 @@
 
 /* --- STILE: + NUOVO MAZZO --- */
 .mazzo-card-nuovo {
-    border: 3px dashed #80a3d9; /* Bordo tratteggiato col colore richiesto */
-    background-color: transparent; /* Senza sfondo */
-    color: #80a3d9; /* Testo viola */
-    justify-content: center; /* Centra tutto perfettamente */
+    border: 3px dashed #80a3d9;
+    background-color: transparent;
+    color: #80a3d9;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
-/* Effetto al passaggio del mouse: piccolissimo sfondo viola per dare feedback visivo */
 .mazzo-card-nuovo:hover {
     background: linear-gradient(135deg,#edf7fc 10%, #f1edfc 100% );
-    transform: translateY(-4px); /* Si alza leggermente */
+    transform: translateY(-4px);
 }
 
 .icona-piu {

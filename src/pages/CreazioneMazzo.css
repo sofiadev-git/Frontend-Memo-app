@@ -1,218 +1,741 @@
+/* =========================================
+   CONTENITORE PAGINA
+   ========================================= */
+
 .creazione-container {
-    max-width: 900px;
+    width: min(820px, 92%);
     margin: 0 auto;
-    padding: 2rem;
+
+    padding: 2.7rem 0 3.5rem;
+
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+
+    gap: 1.6rem;
 }
 
-/* Header con i bottoni a destra */
+
+/* =========================================
+   AZIONI SUPERIORI
+   ========================================= */
+
 .azioni-header {
+    width: 100%;
+
     display: flex;
+    align-items: center;
     justify-content: flex-end;
-    gap: 1rem;
-}
 
-.btn-indietro {
-    padding: 0.6rem 1.2rem;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background-color: white;
-    color: #666;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-indietro:hover {
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-.btn-salva {
-    padding: 0.6rem 1.5rem;
-    border-radius: 20px;
-    border: none;
-    background-color: #9A83F0;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 3px 4px #9094b0;
-    transition: all 0.2s;
-}
-
-.btn-salva:hover {
-    background-color: #8597ff;
-    transform: translateY(-2px);
-}
-
-/* Bubble stondato per Nome e Filtro */
-.info-mazzo-bubble {
-    background-color: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    display: flex;
-    gap: 2rem;
-}
-
-.input-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.input-group label {
-    font-weight: bold;
-    color: #9A83F0;
-    font-size: 0.9rem;
-}
-
-.input-group input {
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
-    outline: none;
-    background-color: #f9f9f9;
-}
-
-.input-group input:focus {
-    border-color: #4fc3f7;
-    background-color: white;
-}
-
-/* Lista delle carte */
-.lista-carte {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.carta-block {
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    overflow: hidden; /* Per mantenere il bordo stondato con l'header interno */
-}
-
-.carta-header {
-    padding: 0.5rem 1.5rem;
-    font-weight: bold;
-    background: linear-gradient(135deg,#d8f0ff 10%, #e4defa 100% );
-    font-size: 0.9rem;
-    border-bottom: 1px solid #eee;
-}
-
-.carta-corpo {
-    display: flex;
-    padding: 1.5rem;
-    gap: 2rem;
-}
-
-.carta-lato {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     gap: 0.8rem;
 }
 
-.carta-lato label {
-    color: #9A83F0; /* Azzurrino per indicare Fronte/Retro */
-    font-weight: bold;
+
+/* =========================================
+   PULSANTE ANNULLA / INDIETRO
+   ========================================= */
+
+.btn-indietro {
+    min-height: 46px;
+
+    padding: 0 1.25rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    border: 1px solid #cfe0f6;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    color: #1c3264;
+
+    font-family: inherit;
+    font-size: 0.96rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 4px 12px rgba(47, 128, 237, 0.07);
+
+    transition:
+            transform 0.2s ease,
+            border-color 0.2s ease,
+            background 0.2s ease,
+            box-shadow 0.2s ease,
+            color 0.2s ease;
+}
+
+.btn-indietro:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    border-color: #aecdF5;
+
+    background: #f8fbff;
+
+    color: #2f80ed;
+
+    box-shadow:
+            0 8px 18px rgba(47, 128, 237, 0.11);
+}
+
+
+/* =========================================
+   PULSANTE SALVA
+   ========================================= */
+
+.btn-salva {
+    min-height: 46px;
+
+    padding: 0 1.45rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    border: none;
+    border-radius: 999px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #2f80ed 0%,
+                    #168cf3 55%,
+                    #1477e8 100%
+            );
+
+    color: white;
+
+    font-family: inherit;
+    font-size: 0.96rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 6px 16px rgba(47, 128, 237, 0.22);
+
+    transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease,
+            filter 0.2s ease;
+}
+
+.btn-salva:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 10px 22px rgba(47, 128, 237, 0.28);
+
+    filter: brightness(1.02);
+}
+
+
+/* =========================================
+   PULSANTI DISABILITATI
+   ========================================= */
+
+.btn-indietro:disabled,
+.btn-salva:disabled {
+    opacity: 0.55;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* =========================================
+   BOX NOME / CATEGORIA
+   ========================================= */
+
+.info-mazzo-bubble {
+    width: 100%;
+
+    padding: 1.45rem 1.6rem;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 1.5rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d8e5f5;
+    border-radius: 18px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.98) 0%,
+                    rgba(250, 252, 255, 0.98) 100%
+            );
+
+    box-shadow:
+            0 8px 20px rgba(47, 128, 237, 0.05);
+}
+
+
+/* =========================================
+   GRUPPO INPUT
+   ========================================= */
+
+.input-group {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.6rem;
+}
+
+.input-group label {
+    color: #172967;
+
+    font-size: 0.91rem;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   INPUT NOME / CATEGORIA
+   ========================================= */
+
+.input-group input {
+    width: 100%;
+    min-height: 47px;
+
+    padding: 0 0.9rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cfe0f6;
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #202a44;
+
+    font-family: inherit;
+    font-size: 0.98rem;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+}
+
+.input-group input::placeholder {
+    color: #8c9ab6;
+}
+
+.input-group input:focus {
+    border-color: #72aaf4;
+
+    background: white;
+
+    box-shadow:
+            0 0 0 3px rgba(47, 128, 237, 0.08);
+}
+
+
+/* =========================================
+   LISTA CARTE
+   ========================================= */
+
+.lista-carte {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.2rem;
+}
+
+
+/* =========================================
+   SINGOLA CARTA
+   ========================================= */
+
+.carta-block {
+    width: 100%;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d7e5f5;
+    border-radius: 17px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #fbfdff 100%
+            );
+
+    box-shadow:
+            0 7px 18px rgba(47, 128, 237, 0.05);
+}
+
+
+/* =========================================
+   HEADER CARTA
+   ========================================= */
+
+.carta-header {
+    min-height: 44px;
+
+    padding: 0 0.7rem;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    border-bottom: 1px solid #e3edf7;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(47, 128, 237, 0.10) 0%,
+                    rgba(39, 194, 207, 0.055) 50%,
+                    rgba(47, 128, 237, 0.035) 100%
+            );
+
+    color: #17233f;
+
     font-size: 0.9rem;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   HEADER FORM
+   ========================================= */
+
+.card-form-header {
+    justify-content: space-between;
+
+    gap: 0.5rem;
+}
+
+
+/* =========================================
+   AZIONI HEADER
+   ========================================= */
+
+.card-header-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.25rem;
+}
+
+
+/* =========================================
+   PULSANTI + ↑ ↓ CESTINO
+   ========================================= */
+
+.card-icon-button {
+    width: 29px;
+    height: 29px;
+
+    padding: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid #cfe0f6;
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    color: #2f80ed;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 2px 5px rgba(47, 128, 237, 0.035);
+
+    transition:
+            transform 0.18s ease,
+            background 0.18s ease,
+            border-color 0.18s ease,
+            color 0.18s ease,
+            box-shadow 0.18s ease;
+}
+
+.card-icon-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+.card-icon-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    background: #eef6ff;
+
+    border-color: #9fc7f7;
+
+    color: #176ed6;
+
+    box-shadow:
+            0 4px 8px rgba(47, 128, 237, 0.08);
+}
+
+.card-icon-button:disabled {
+    opacity: 0.28;
+
+    cursor: default;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================
+   CESTINO
+   ========================================= */
+
+.card-delete-button {
+    color: #ff4d4f;
+
+    border-color: #ffd1d2;
+
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.card-delete-button:hover:not(:disabled) {
+    color: #e43d40;
+
+    background: #fff5f5;
+
+    border-color: #ffbabb;
+}
+
+
+/* =========================================
+   CORPO CARTA
+   ========================================= */
+
+.carta-corpo {
+    width: 100%;
+
+    padding: 1.15rem 1.15rem 1.25rem;
+
+    display: flex;
+
+    gap: 1.25rem;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   FRONTE / RETRO
+   ========================================= */
+
+.carta-lato {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.6rem;
+}
+
+.carta-lato label {
+    color: #3478e5;
+
+    font-size: 0.92rem;
+    font-weight: 800;
+
     text-transform: uppercase;
 }
 
+
+/* =========================================
+   TEXTAREA PRINCIPALE
+   ========================================= */
+
 .carta-lato textarea {
     width: 100%;
-    height: 100px;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    resize: none; /* Impedisce di ridimensionare manualmente */
+    height: 86px;
+
+    padding: 0.8rem 0.9rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cfe0f6;
+    border-radius: 11px;
+
+    outline: none;
+
+    resize: none;
+
+    background: #ffffff;
+
+    color: #202a44;
+
     font-family: inherit;
     font-size: 1rem;
+    line-height: 1.45;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+}
+
+.carta-lato textarea::placeholder {
+    color: #8d9bb6;
 }
 
 .carta-lato textarea:focus {
-    outline: none;
-    border-color: #4fc3f7;
+    border-color: #72aaf4;
+
+    background: white;
+
+    box-shadow:
+            0 0 0 3px rgba(47, 128, 237, 0.075);
 }
 
-/* Bottone Immagine Fittizio */
-.btn-img-fittizio {
-    padding: 0.5rem;
-    border: 1px dashed #ccc;
-    background-color: #fafafa;
-    color: #999;
-    border-radius: 8px;
-    cursor: not-allowed;
-    font-size: 0.85rem;
-}
 
-/* Bottone Aggiungi Carta (Tratteggiato) */
-.btn-aggiungi-carta {
-    margin-top: 1rem;
-    padding: 2rem;
-    background-color: transparent;
-    border: 3px dashed #97a6fc;
-    border-radius: 16px;
-    color: #9A83F0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-aggiungi-carta:hover {
-    background: linear-gradient(135deg,#edf7fc 10%, #f0f2fc 100% );
-}
-
-/* Tasto per eliminare la singola carta */
-.btn-elimina-singola {
-    background: none;
-    border: none;
-    color: #ff4d4f; /* Rosso per indicare un'azione di eliminazione */
-    font-size: 0.9rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0.2rem 0.5rem;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-}
-
-.btn-elimina-singola:hover {
-    background-color: #ffe6e6; /* Leggero sfondo rosso al passaggio del mouse */
-}
-.card-form-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* =========================================
+   DESCRIZIONE / PRONUNCIA
+   ========================================= */
 
 .card-description-input {
-    margin-top: 0.5rem;
-    padding: 0.5rem;
+    width: 100%;
+    min-height: 40px;
+
+    padding: 0 0.8rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cfe0f6;
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #31415f;
+
+    font-family: inherit;
     font-size: 0.9rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
 }
+
+.card-description-input::placeholder {
+    color: #8393b2;
+}
+
+.card-description-input:focus {
+    border-color: #72aaf4;
+
+    box-shadow:
+            0 0 0 3px rgba(47, 128, 237, 0.07);
+}
+
+
+/* =========================================
+   AGGIUNGI CARTA
+   ========================================= */
+
+.btn-aggiungi-carta {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 2px dashed #9fc4f3;
+    border-radius: 16px;
+
+    background:
+            rgba(247, 251, 255, 0.75);
+
+    color: #3478e5;
+
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+            transform 0.2s ease,
+            background 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+.btn-aggiungi-carta:hover:not(:disabled) {
+    transform: translateY(-1px);
+
+    border-color: #6fa9ee;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    rgba(47, 128, 237, 0.055),
+                    rgba(39, 194, 207, 0.035),
+                    rgba(47, 128, 237, 0.045)
+            );
+
+    box-shadow:
+            0 6px 14px rgba(47, 128, 237, 0.06);
+}
+
+.btn-aggiungi-carta:disabled {
+    opacity: 0.45;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* =========================================
+   ERRORE FORM
+   ========================================= */
 
 .form-error {
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
+    width: 100%;
+
+    padding: 0.8rem 0.95rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ffd0d0;
+    border-radius: 11px;
+
+    background: #fff7f7;
+
+    color: #d93c3f;
+
+    font-size: 0.92rem;
+    font-weight: 600;
 }
 
-@media (max-width: 720px) {
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 760px) {
+
     .creazione-container {
+        width: 92%;
+
+        padding-top: 2rem;
+    }
+
+    .info-mazzo-bubble {
+        flex-direction: column;
+
+        gap: 1.2rem;
+
+        padding: 1.3rem;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .carta-corpo {
+        flex-direction: column;
+
+        gap: 1.2rem;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 520px) {
+
+    .creazione-container {
+        width: 94%;
+
+        padding:
+                1.2rem
+                0
+                2.5rem;
+
+        gap: 1.2rem;
+    }
+
+    .azioni-header {
+        flex-direction: column-reverse;
+
+        align-items: stretch;
+    }
+
+    .btn-indietro,
+    .btn-salva {
+        width: 100%;
+    }
+
+    .info-mazzo-bubble {
+        padding: 1.1rem;
+
+        border-radius: 16px;
+    }
+
+    .carta-block {
+        border-radius: 15px;
+    }
+
+    .carta-header {
+        min-height: 42px;
+
+        padding: 0 0.6rem;
+    }
+
+    .card-header-actions {
+        gap: 0.2rem;
+    }
+
+    .card-icon-button {
+        width: 27px;
+        height: 27px;
+    }
+
+    .card-icon-button svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    .carta-corpo {
         padding: 1rem;
     }
 
-    .info-mazzo-bubble,
-    .carta-corpo {
-        flex-direction: column;
+    .btn-aggiungi-carta {
+        min-height: 64px;
     }
 }

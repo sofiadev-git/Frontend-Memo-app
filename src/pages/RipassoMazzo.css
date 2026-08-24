@@ -1,139 +1,822 @@
-/* Contenitore principale a tutto schermo */
 .ripasso-container {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    padding: 2rem clamp(1.5rem, 5vw, 5rem);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
-    /* --- LE MODIFICHE PER IL CENTRAGGIO ASSOLUTO --- */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(135deg,#d8f0ff 10%, #ede8ff 100% );
-    padding: 2rem;
-    box-sizing: border-box;
+    overflow-y: auto;
+
+    background:
+            radial-gradient(
+                    circle at 15% 10%,
+                    rgba(39, 194, 207, 0.10),
+                    transparent 30%
+            ),
+            radial-gradient(
+                    circle at 85% 15%,
+                    rgba(47, 128, 237, 0.11),
+                    transparent 31%
+            ),
+            linear-gradient(
+                    145deg,
+                    #f5faff 0%,
+                    #eef7ff 46%,
+                    #f8faff 100%
+            );
+
+    color: #172967;
 }
 
-/* Area centrale: freccia - carta - freccia */
+
+
+
+.review-header {
+    width: min(1040px, 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-bottom: 1.6rem;
+}
+
+
+.review-header-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.3rem;
+}
+
+
+.review-eyebrow {
+    color: #2f80ed;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+}
+
+
+.review-header h1 {
+    margin: 0;
+
+    color: #172967;
+
+    font-size: clamp(
+            1.65rem,
+            3vw,
+            2.2rem
+    );
+
+    font-weight: 800;
+
+    letter-spacing: -0.03em;
+}
+
+
+
+.review-close-button {
+    min-height: 44px;
+
+    padding: 0 1.15rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.55rem;
+
+    border: 1px solid #cfdef1;
+    border-radius: 999px;
+
+    background:
+            rgba(255, 255, 255, 0.82);
+
+    color: #445675;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+            0 5px 14px
+            rgba(47, 128, 237, 0.06);
+
+    transition:
+            transform 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+}
+
+
+.review-close-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.review-close-button:hover {
+    transform: translateY(-1px);
+
+    color: #2f80ed;
+
+    border-color: #a9cef8;
+
+    box-shadow:
+            0 8px 18px
+            rgba(47, 128, 237, 0.11);
+}
+
+
+.review-progress-section {
+    width: min(1040px, 100%);
+
+    margin-bottom: 2.5rem;
+}
+
+
+.review-progress-text {
+    margin-bottom: 0.55rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #6d7d99;
+
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+
+.review-progress-track {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+            rgba(47, 128, 237, 0.10);
+}
+
+
+.review-progress-value {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #2f80ed 0%,
+                    #27c2cf 100%
+            );
+
+    box-shadow:
+            0 0 12px
+            rgba(39, 194, 207, 0.20);
+
+    transition:
+            width 0.35s ease;
+}
+
+
+
 .ripasso-main {
+    width: min(1040px, 100%);
+
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        58px
+        minmax(0, 1fr)
+        58px;
+
+    align-items: center;
+
+    gap: 1.6rem;
+}
+
+
+/* FRECCE */
+
+.nav-arrow {
+    width: 52px;
+    height: 52px;
+
+    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    margin-bottom: 3rem;
+
+    border: 1px solid #cadff7;
+    border-radius: 50%;
+
+    background:
+            rgba(255, 255, 255, 0.88);
+
+    color: #2f80ed;
+
+    cursor: pointer;
+
+    box-shadow:
+            0 7px 18px
+            rgba(47, 128, 237, 0.08);
+
+    transition:
+            transform 0.2s ease,
+            background 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            opacity 0.2s ease;
 }
 
-/* --- LA MAGIA DEL 3D --- */
+
+.nav-arrow svg {
+    width: 23px;
+    height: 23px;
+}
+
+
+.nav-arrow:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    background: #ffffff;
+
+    border-color: #8ebcf4;
+
+    box-shadow:
+            0 11px 22px
+            rgba(47, 128, 237, 0.14);
+}
+
+
+.nav-arrow:disabled {
+    opacity: 0.26;
+
+    cursor: default;
+
+    box-shadow: none;
+}
+
+
+
+
+.review-card-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.25rem;
+}
+
+
+
+
 .flashcard-wrapper {
-    perspective: 1000px; /* Dà profondità all'animazione 3D */
-    width: 500px;
-    height: 300px;
+    width: min(620px, 100%);
+    height: 350px;
+
+    perspective: 1300px;
+
     cursor: pointer;
 }
+
 
 .flashcard-inner {
     width: 100%;
     height: 100%;
+
     position: relative;
-    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-    transform-style: preserve-3d; /* Permette il rendering delle due facce */
+
+    transform-style: preserve-3d;
+
+    transition:
+            transform
+            0.55s
+            cubic-bezier(
+                    0.4,
+                    0.2,
+                    0.2,
+                    1
+            );
 }
 
-/* Quando la carta è girata, ruota di 180 gradi sull'asse Y */
+
 .flashcard-inner.is-flipped {
     transform: rotateY(180deg);
 }
 
-/* Stile comune per fronte e retro */
-.flashcard-front, .flashcard-back {
+
+
+
+.flashcard-front,
+.flashcard-back {
     position: absolute;
+    inset: 0;
+
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Nasconde il retro quando guardi il fronte */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* L'ombra che dà spessore */
-    font-size: 1.8rem;
-    text-align: center;
-    color: #333;
-}
 
-/* Il retro parte già girato di 180 gradi, così quando si gira si vede dritto! */
-.flashcard-back {
-    transform: rotateY(180deg);
-    background-color: #fafafa;
-    color: #9A83F0; /* Testo colorato sul retro per distinguerlo meglio */
-}
+    box-sizing: border-box;
 
-/* --- FRECCE E BOTTONI --- */
-.nav-arrow {
-    background: none;
-    border: none;
-    font-size: 3rem;
-    color: #9A83F0;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.2s;
-    padding: 1rem;
-}
+    padding: 2.2rem 2.6rem;
 
-.nav-arrow:hover:not(:disabled) {
-    transform: scale(1.2);
-}
+    overflow: hidden;
 
-.nav-arrow:disabled {
-    color: #ccc;
-    cursor: default;
-    opacity: 0.5;
-}
-
-.btn-concludi {
-    background-color: #ff4d4f;
-    color: white;
-    border: none;
-    padding: 1rem 3rem;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.btn-concludi:hover {
-    background-color: #ff7875;
-    transform: translateY(-2px);
-}
-.review-side-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    border: 1px solid #d8e5f4;
+    border-radius: 26px;
+
+    background:
+            linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.99) 0%,
+                    rgba(249, 252, 255, 0.99) 100%
+            );
+
+    color: #172967;
+
+    text-align: center;
+
+    backface-visibility: hidden;
+
+    box-shadow:
+            0 22px 48px
+            rgba(39, 76, 139, 0.12),
+            0 5px 14px
+            rgba(47, 128, 237, 0.05);
 }
+
+
+.flashcard-back {
+    transform: rotateY(180deg);
+
+    background:
+            linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f7fcff 100%
+            );
+}
+
+
+
+.review-card-accent {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 4px;
+
+    background:
+            linear-gradient(
+                    90deg,
+                    #2f80ed 0%,
+                    #27c2cf 55%,
+                    #5e83ef 100%
+            );
+}
+
+
+/* FRONTE / RETRO */
+
+.review-side-label {
+    align-self: flex-start;
+
+    padding: 0.35rem 0.7rem;
+
+    border-radius: 999px;
+
+    background:
+            rgba(47, 128, 237, 0.07);
+
+    color: #2f80ed;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+
+.flashcard-back .review-side-label {
+    background:
+            rgba(39, 194, 207, 0.08);
+
+    color: #159eac;
+}
+
+
+/* CONTENUTO CARTA */
+
+.review-side-content {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+}
+
+
+.review-main-text {
+    max-width: 90%;
+
+    color: #172967;
+
+    font-size:
+            clamp(
+                    1.65rem,
+                    3vw,
+                    2.15rem
+            );
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
+}
+
 
 .review-side-content small {
+    max-width: 85%;
+
+    color: #71809a;
+
     font-size: 1rem;
-    color: #999;
-    margin-top: 1rem;
-    font-weight: normal;
+    font-weight: 500;
+
+    line-height: 1.5;
 }
+
+
+.flashcard-back .review-main-text {
+    color: #176eac;
+}
+
 
 .flashcard-back .review-side-content small {
-    color: #9A83F0;
-    opacity: 0.7;
+    color: #64839c;
 }
 
-@media (max-width: 700px) {
-    .flashcard-wrapper {
-        width: min(72vw, 500px);
-        height: 280px;
+
+
+
+.review-flip-hint {
+    min-height: 38px;
+
+    padding: 0 0.9rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    border: none;
+
+    background: transparent;
+
+    color: #7888a3;
+
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+            color 0.2s ease;
+}
+
+
+.review-flip-hint:hover {
+    color: #2f80ed;
+}
+
+
+.review-flip-icon {
+    width: 18px;
+    height: 18px;
+
+    display: inline-flex;
+}
+
+
+.review-flip-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.review-bottom {
+    width: min(620px, 100%);
+
+    margin-top: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.review-bottom-counter {
+    color: #73829d;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+
+/* nascosti su desktop */
+
+.review-mobile-navigation {
+    display: none;
+}
+
+
+
+.review-message-card {
+    width: min(500px, 92%);
+
+    margin: auto;
+
+    padding: 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    border: 1px solid #d9e6f5;
+    border-radius: 24px;
+
+    background: white;
+
+    text-align: center;
+
+    box-shadow:
+            0 15px 35px
+            rgba(47, 128, 237, 0.08);
+}
+
+
+.review-message-card h2 {
+    margin: 0;
+
+    color: #172967;
+
+    font-size: 1.3rem;
+}
+
+
+.review-primary-button {
+    min-height: 45px;
+
+    padding: 0 1.3rem;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #2f80ed;
+
+    color: white;
+
+    font-family: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.review-loading {
+    margin: auto;
+
+    color: #687894;
+
+    font-weight: 700;
+}
+
+
+
+
+@media (max-width: 800px) {
+
+    .ripasso-container {
+        padding:
+                1.5rem
+                1.2rem;
     }
 
-    .ripasso-main {
-        gap: 0.5rem;
+
+    .review-progress-section {
+        margin-bottom: 1.8rem;
     }
+
+
+    .ripasso-main {
+        grid-template-columns:
+            44px
+            minmax(0, 1fr)
+            44px;
+
+        gap: 0.7rem;
+    }
+
+
+    .nav-arrow {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .nav-arrow svg {
+        width: 19px;
+        height: 19px;
+    }
+
+
+    .flashcard-wrapper {
+        height: 320px;
+    }
+
+
+    .flashcard-front,
+    .flashcard-back {
+        padding:
+                1.7rem
+                1.8rem;
+    }
+}
+
+
+
+
+@media (max-width: 600px) {
+
+    .ripasso-container {
+        position: fixed;
+
+        padding:
+                1.2rem
+                1rem
+                1.5rem;
+    }
+
+
+    .review-header {
+        margin-bottom: 1.2rem;
+    }
+
+
+    .review-close-button span {
+        display: none;
+    }
+
+
+    .review-close-button {
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+
+        border-radius: 50%;
+    }
+
+
+    .review-progress-section {
+        margin-bottom: 1.5rem;
+    }
+
+
+    .ripasso-main {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    .ripasso-main > .nav-arrow {
+        display: none;
+    }
+
+
+    .flashcard-wrapper {
+        width: 100%;
+        height: 300px;
+    }
+
+
+    .flashcard-front,
+    .flashcard-back {
+        padding:
+                1.5rem
+                1.3rem;
+
+        border-radius: 21px;
+    }
+
+
+    .review-main-text {
+        max-width: 100%;
+
+        font-size: 1.55rem;
+    }
+
+
+    .review-side-content small {
+        max-width: 100%;
+    }
+
+
+    .review-bottom {
+        width: 100%;
+
+        margin-top: 1rem;
+
+        justify-content: space-between;
+
+        gap: 0.7rem;
+    }
+
+
+    .review-mobile-navigation {
+        min-height: 40px;
+
+        padding: 0 0.75rem;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 0.35rem;
+
+        border: 1px solid #cfe0f5;
+        border-radius: 999px;
+
+        background: white;
+
+        color: #2f80ed;
+
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: 700;
+
+        cursor: pointer;
+    }
+
+
+    .review-mobile-navigation svg {
+        width: 15px;
+        height: 15px;
+    }
+
+
+    .review-mobile-navigation:disabled {
+        opacity: 0.3;
+
+        cursor: default;
+    }
+
+
+    .review-bottom-counter {
+        font-size: 0.78rem;
+    }
+
 }
