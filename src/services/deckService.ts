@@ -1,22 +1,22 @@
-import type { Deck } from '../types';
+import type { Deck, DeckSummary } from '../types';
 import api from './api.ts';
 
 const deckService = {
-  async top(): Promise<Deck[]> {
-    const response = await api.get<Deck[]>('/decks/top');
+  async top(): Promise<DeckSummary[]> {
+    const response = await api.get<DeckSummary[]>('/decks/top');
     return response.data;
   },
 
-  async recent(): Promise<Deck[]> {
-    const response = await api.get<Deck[]>('/decks/recent');
+  async recent(): Promise<DeckSummary[]> {
+    const response = await api.get<DeckSummary[]>('/decks/recent');
     return response.data;
   },
 
   async search(
       query: string,
       filter: 'all' | 'name' | 'category' = 'all'
-  ): Promise<Deck[]> {
-    const response = await api.get<Deck[]>('/decks/search', {
+  ): Promise<DeckSummary[]> {
+    const response = await api.get<DeckSummary[]>('/decks/search', {
       params: {
         q: query,
         filter
@@ -31,13 +31,13 @@ const deckService = {
     return response.data;
   },
 
-  async mine(): Promise<Deck[]> {
-    const response = await api.get<Deck[]>('/decks/mine');
+  async mine(): Promise<DeckSummary[]> {
+    const response = await api.get<DeckSummary[]>('/decks/mine');
     return response.data;
   },
 
-  async bookmarks(): Promise<Deck[]> {
-    const response = await api.get<Deck[]>('/decks/bookmarks');
+  async bookmarks(): Promise<DeckSummary[]> {
+    const response = await api.get<DeckSummary[]>('/decks/bookmarks');
     return response.data;
   },
 
@@ -55,8 +55,8 @@ const deckService = {
     await api.delete(`/decks/${id}`);
   },
 
-  async toggleLike(id: number): Promise<Deck> {
-    const response = await api.post<Deck>(`/decks/${id}/like`);
+  async toggleLike(id: number): Promise<DeckSummary> {
+    const response = await api.post<DeckSummary>(`/decks/${id}/like`);
     return response.data;
   },
 

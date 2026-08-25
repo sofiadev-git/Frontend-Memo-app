@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import type { Deck } from '../types';
+import type { DeckSummary } from '../types';
 import deckService from '../services/deckService';
 import { getErrorMessage } from '../services/api';
 import DeckCard from '../components/DeckCard';
@@ -15,7 +15,7 @@ export default function SearchPage() {
   const filter: SearchFilter =
       filterParam === 'name' || filterParam === 'category' ? filterParam : 'all';
 
-  const [decks, setDecks] = useState<Deck[]>([]);
+  const [decks, setDecks] = useState<DeckSummary[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -58,7 +58,7 @@ export default function SearchPage() {
     setSearchParams(params);
   };
 
-  const updateDeck = (updated: Deck) => {
+  const updateDeck = (updated: DeckSummary) => {
     setDecks((current) =>
         current.map((deck) => (deck.id === updated.id ? updated : deck))
     );

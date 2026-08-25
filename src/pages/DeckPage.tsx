@@ -310,7 +310,15 @@ export default function DeckPage() {
                 );
 
 
-            setDeck(updatedDeck);
+            setDeck((currentDeck) =>
+                currentDeck
+                    ? {
+                        ...currentDeck,
+                        likes: updatedDeck.likes,
+                        liked: updatedDeck.liked
+                    }
+                    : currentDeck
+            );
 
         } catch (requestError) {
 

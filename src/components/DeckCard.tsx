@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import type { Deck } from '../types';
+import type { DeckSummary } from '../types';
 import { useAuth } from '../auth/AuthContext';
 import deckService from '../services/deckService';
 import { getErrorMessage } from '../services/api';
@@ -10,44 +10,9 @@ import './DeckCard.css';
 
 
 interface DeckCardProps {
-    deck: Deck;
-    onChange?: (deck: Deck) => void;
+    deck: DeckSummary;
+    onChange?: (deck: DeckSummary) => void;
     showLike?: boolean;
-}
-
-
-function CardsIcon() {
-    return (
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <rect
-                x="7"
-                y="7"
-                width="10"
-                height="12"
-                rx="2"
-            />
-
-            <path
-                d="
-                    M5 15
-                    H4
-                    a2 2 0 0 1-2-2
-                    V6
-                    a2 2 0 0 1 2-2
-                    h7
-                    a2 2 0 0 1 2 2
-                    v1
-                "
-            />
-        </svg>
-    );
 }
 
 
@@ -97,9 +62,7 @@ export default function DeckCard({
 
 
     const openDeck = () => {
-        if (deck.id != null) {
-            navigate(`/deck/${deck.id}`);
-        }
+        navigate(`/deck/${deck.id}`);
     };
 
 
@@ -111,10 +74,6 @@ export default function DeckCard({
 
         if (!isLoggedIn) {
             navigate('/login');
-            return;
-        }
-
-        if (deck.id == null) {
             return;
         }
 
@@ -146,26 +105,6 @@ export default function DeckCard({
                 <h3 className="home-mazzo-card-title">
                     {deck.name}
                 </h3>
-
-
-                <div className="home-mazzo-card-meta">
-
-                    <div className="home-mazzo-card-info">
-
-                        <span className="mini-icon">
-                            <CardsIcon />
-                        </span>
-
-                        <span>
-                            {deck.flashcards?.length ?? 0}
-                            {' '}
-                            carte
-                        </span>
-
-                    </div>
-
-
-                </div>
 
             </div>
 

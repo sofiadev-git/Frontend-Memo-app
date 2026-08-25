@@ -7,6 +7,14 @@ export interface Flashcard {
   backDescription: string | null;
 }
 
+export interface DeckSummary {
+  id: number;
+  name: string;
+  category: string;
+  likes: number;
+  liked: boolean;
+}
+
 export interface Deck {
   id: number | null;
   name: string;
