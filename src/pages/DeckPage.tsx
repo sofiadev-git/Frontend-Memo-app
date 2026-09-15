@@ -432,15 +432,10 @@ export default function DeckPage() {
 
                 <button
                     className="btn-indietro"
-                    onClick={() =>
-                        navigate(-1)
-                    }
+                    onClick={() => navigate(isOwner ? "/profile" : "/")}
                 >
-
                     <BackIcon />
-
                     Torna indietro
-
                 </button>
 
 

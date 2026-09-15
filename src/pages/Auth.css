@@ -43,7 +43,7 @@
 }
 
 .auth-card input:focus {
-    border-color: #9A83F0;
+    border-color: #2095e8;
 }
 
 .auth-primary {
@@ -51,7 +51,7 @@
     padding: 0.85rem 1rem;
     border-radius: 24px;
     border: none;
-    background: #9A83F0;
+    background: #2f80ed;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -60,6 +60,6 @@
 .auth-link {
     border: none;
     background: transparent;
-    color: #7B5EE4;
+    color: #067bcd;
     cursor: pointer;
 }
